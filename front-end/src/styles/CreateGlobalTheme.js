@@ -7,6 +7,9 @@ export default createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         font-family: 'Karla', sans-serif;
+    }
+
+    body{
         background-color: ${props => props.theme.colors.background};
     }
     

@@ -1,16 +1,15 @@
-import React from 'react'
+import React from 'react';
+import { ExpenseItemStyled } from '../../styles/StyledComponents';
 
 function ExpenseItem() {
     return (
-        <div>
-            <div>
+        <ExpenseItemStyled>
+            <section>
                 March 28th 2021
-            </div>
-            <div>
-                <h2>Car Insurance</h2>
-                <div>$300</div>
-            </div>
-        </div>
+            </section>
+            <h2>Car Insurance</h2>
+            <div>$300</div>
+        </ExpenseItemStyled>
     )
 }
 
