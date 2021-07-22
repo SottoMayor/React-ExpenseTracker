@@ -1,0 +1,15 @@
+import { createGlobalStyle } from "styled-components";
+
+export default createGlobalStyle`
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Karla', sans-serif;
+        background-color: ${props => props.theme.colors.background};
+    }
+    
+    @import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+
+`

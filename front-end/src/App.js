@@ -1,12 +1,14 @@
-import './App.css';
+import { Fragment } from 'react';
 import ExpenseItem from './components/ExpenseItem/ExpenseItem';
 
 
 function App() {
   return (
-    <div className="App">
+    <Fragment>
+
+
       <ExpenseItem/>
-    </div>
+    </Fragment>
   );
 }
 
