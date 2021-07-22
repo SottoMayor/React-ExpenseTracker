@@ -1,14 +1,15 @@
 import React from 'react';
 import { ExpenseItemStyled } from '../../styles/StyledComponents';
 
-function ExpenseItem() {
+function ExpenseItem(props) {
+    console.log(props)
     return (
         <ExpenseItemStyled>
             <section>
-                March 28th 2021
+                {props.date.toISOString()}
             </section>
-            <h2>Car Insurance</h2>
-            <div>$300</div>
+            <h2>{props.title}</h2>
+            <div>${props.amount}</div>
         </ExpenseItemStyled>
     )
 }
