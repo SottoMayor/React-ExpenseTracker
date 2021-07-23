@@ -26,10 +26,15 @@ function App() {
     },
   ];
 
+  const submitExpenseFormHandler = (expenseData) => {
+    console.log(expenseData);
+    DUMMY_EXPENSES.push(expenseData);
+  }
+
   return (
     <Fragment>
 
-      <NewExpense/>
+      <NewExpense onSubmitExpenseForm={submitExpenseFormHandler}/>
 
       <Expenses expenses={DUMMY_EXPENSES}/>
 

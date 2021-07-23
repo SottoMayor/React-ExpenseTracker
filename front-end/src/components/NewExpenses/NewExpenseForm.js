@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NewExpenseFormStyled } from '../../styles/StyledComponents';
 
-const NewExpenseForm = () => {
+const NewExpenseForm = (props) => {
 
     const [title, setTitle] = useState('');
 
@@ -30,7 +30,7 @@ const NewExpenseForm = () => {
             date: new Date(date)
         }
 
-        console.log(formData);
+        props.onSubmitExpenseForm(formData)
 
         setTitle('');
         setAmount('');
