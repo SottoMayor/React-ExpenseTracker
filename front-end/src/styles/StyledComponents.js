@@ -75,4 +75,16 @@ export const ExpenseDateStyled = styled.section`
 
 `
     
-    
+export const ExpensesStyled = styled.section`
+
+    & {
+        padding: 1rem;
+        background-color: ${ props => props.theme.colors.warning };
+        margin: 2rem auto;
+        width: 50rem;
+        max-width: 95%;
+        border-radius: 12px;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+    }
+
+`

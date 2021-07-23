@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import ExpenseItem from './components/ExpenseItem/ExpenseItem';
+import Expenses from './components/Expenses';
 
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
   return (
     <Fragment>
 
-      {DUMMY_EXPENSES.map(expense => <ExpenseItem {...expense} key={expense.id}/>)}
+      <Expenses expenses={DUMMY_EXPENSES}/>
 
     </Fragment>
   );

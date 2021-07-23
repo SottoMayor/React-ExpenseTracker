@@ -1,6 +1,6 @@
 import React from 'react';
-import { ExpenseItemStyled } from '../../styles/StyledComponents';
-import ExpenseDate from '../ExpenseDate/ExpenseDate';
+import { ExpenseItemStyled } from '../styles/StyledComponents';
+import ExpenseDate from './ExpenseDate';
 
 function ExpenseItem(props) {
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExpenseDateStyled } from '../../styles/StyledComponents';
+import { ExpenseDateStyled } from '../styles/StyledComponents';
 
 const ExpenseDate = (props) => {
 
