@@ -1,7 +1,7 @@
 import React from 'react'
 
 import ExpenseItem from './ExpenseItem';
-import { ExpensesStyled } from '../styles/StyledComponents';
+import { ExpensesStyled } from '../../styles/StyledComponents';
 
 const Expenses = (props) => {
     return (
