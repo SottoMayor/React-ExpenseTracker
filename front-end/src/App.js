@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import Expenses from './components/Expenses/Expenses';
-
+import NewExpense from './components/NewExpenses/NewExpense';
 
 function App() {
 
@@ -28,6 +28,8 @@ function App() {
 
   return (
     <Fragment>
+
+      <NewExpense/>
 
       <Expenses expenses={DUMMY_EXPENSES}/>
 

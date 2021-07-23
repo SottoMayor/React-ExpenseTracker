@@ -102,3 +102,76 @@ export const ExpensesStyled = styled.section`
     
 
 `
+
+export const NewExpenseStyled = styled.div`
+
+    & {
+        background-color: ${props => props.theme.colors.warning};
+        padding: 1rem;
+        margin: 2rem auto;
+        width: 50rem;
+        max-width: 95%;
+        text-align: center;
+        ${Card}
+    }
+    
+    & button {
+        font: inherit;
+        cursor: pointer;
+        padding: 1rem 2rem;
+        border: 1px solid ${props => props.theme.colors.primary};
+        background-color: ${props => props.theme.colors.primary};
+        color: white;
+        margin-right: 1rem;
+        ${Card}
+    }
+    
+    & button:hover,
+    & button:active {
+        background-color: ${props => props.theme.colors.secondary};
+    }
+    
+    & button.alternative {
+        color: #220131;
+        border-color: transparent;
+        background-color: transparent;
+    }
+    
+    & button.alternative:hover,
+    & button.alternative:active {
+        background-color: #ddb3f8;
+    }
+
+`
+
+export const NewExpenseFormStyled = styled.div`
+
+    & .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        text-align: left;
+    }
+    
+    & .control label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+    
+    & .control input {
+        font: inherit;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        width: 20rem;
+        max-width: 100%;
+        outline: 0;
+        ${Card}
+    }
+    
+    & .actions {
+        text-align: right;
+    }
+
+`
