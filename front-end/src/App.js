@@ -1,10 +1,10 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpenses/NewExpense';
 
 function App() {
 
-  const DUMMY_EXPENSES = [
+  const [expenses, setExpenses] = useState([
     {
       id: 'e1',
       title: 'Toilet Paper',
@@ -24,11 +24,16 @@ function App() {
       amount: 450,
       date: new Date(2021, 5, 12),
     },
-  ];
+  ]);
 
   const submitExpenseFormHandler = (expenseData) => {
     console.log(expenseData);
-    DUMMY_EXPENSES.push(expenseData);
+    setExpenses((prevState) => {
+      return [
+        ...prevState,
+        expenseData
+      ]
+    });
   }
 
   return (
@@ -36,7 +41,7 @@ function App() {
 
       <NewExpense onSubmitExpenseForm={submitExpenseFormHandler}/>
 
-      <Expenses expenses={DUMMY_EXPENSES}/>
+      <Expenses expenses={expenses}/>
 
     </Fragment>
   );
