@@ -3,15 +3,20 @@ import { ChartStyled } from '../../styles/StyledComponents';
 import ChartBar from './ChartBar';
 
 const Chart = (props) => {
+
+    const dataPointsValues = props.dataPoints.map( dataPoint => dataPoint.value );
+    const totalMaximum = dataPointsValues.reduce( (prev, current) => {return prev + current}, 0)
+    console.log(totalMaximum)
+
     return (
         <ChartStyled>
-            {props.dataPoints.map((dataPoint) => {
+            {props.dataPoints.map(dataPoint => {
                 return (
                     <ChartBar
                         value={dataPoint.value}
-                        max={null}
+                        max={totalMaximum}
                         label={dataPoint.label}
-                        key={dataPoints.key}
+                        key={dataPoint.label}
                     />
                 );
             })}

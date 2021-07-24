@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { ExpensesStyled } from '../../styles/StyledComponents';
 import ExpensesFilter from './ExpensesFilter';
 import ExpensesList from './ExpensesList';
+import ExpensesChart from './ExpensesChart';
 
 const Expenses = (props) => {
 
@@ -20,6 +21,8 @@ const Expenses = (props) => {
     return (
         <ExpensesStyled>
             <ExpensesFilter onGetYearExpenses={getYearExpensesHandler} selectedYear={year}/>
+
+            <ExpensesChart expenses={filteredExpenses}/>
 
             <ExpensesList expenses={filteredExpenses}/>
         </ExpensesStyled>
