@@ -175,3 +175,33 @@ export const NewExpenseFormStyled = styled.div`
     }
 
 `
+
+export const ExpensesFilterStyled = styled.section`
+
+    & {
+        color: black;
+        padding: 0 1rem;
+    }
+    
+    & .control {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        margin: 1rem 0;
+    }
+    
+    & label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+    
+    & select {
+        font: inherit;
+        padding: 0.5rem 3rem;
+        font-weight: bold;
+        border-radius: 6px;
+        outline: 0;
+    }
+
+`

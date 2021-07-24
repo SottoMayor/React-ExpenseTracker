@@ -41,7 +41,7 @@ function App() {
 
       <NewExpense onSubmitExpenseForm={submitExpenseFormHandler}/>
 
-      <Expenses expenses={expenses}/>
+      <Expenses expenses={expenses} />
 
     </Fragment>
   );
