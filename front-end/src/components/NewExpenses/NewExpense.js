@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NewExpenseStyled } from '../../styles/StyledComponents';
 import NewExpenseForm from './NewExpenseForm';
 
 const NewExpense = (props) => {
+
+    const [addExpense, setAddExpense] = useState(false)
 
     const submitExpenseFormHandler = (expenseDataForm) => {
         const expenseData = {
@@ -14,9 +16,19 @@ const NewExpense = (props) => {
 
     }
 
+    const addExpenseHandler = () => {
+        setAddExpense( prevState => !prevState)
+    }
+
+    const cancelAddExpenseHandler = () => {
+        addExpenseHandler()
+    }
+
     return (
         <NewExpenseStyled>
-            <NewExpenseForm onSubmitExpenseForm={submitExpenseFormHandler} />
+            { addExpense &&  <NewExpenseForm onCancelAddExpense={cancelAddExpenseHandler} onSubmitExpenseForm={submitExpenseFormHandler} />}
+            { !addExpense && <button onClick={addExpenseHandler}>Add Expense</button> }
+            
         </NewExpenseStyled>
     )
 }

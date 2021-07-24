@@ -35,6 +35,12 @@ const NewExpenseForm = (props) => {
         setTitle('');
         setAmount('');
         setDate('');
+
+        cancelAddExpense()
+    }
+
+    const cancelAddExpense = () => {
+        props.onCancelAddExpense()
     }
 
 
@@ -57,6 +63,7 @@ const NewExpenseForm = (props) => {
                 </div>
 
                 <div className="actions">
+                    <button onClick={cancelAddExpense}>Cancel</button>
                     <button type="submit">Add Expense</button>
                 </div>
 
