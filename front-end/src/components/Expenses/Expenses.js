@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-import ExpenseItem from './ExpenseItem';
 import { ExpensesStyled } from '../../styles/StyledComponents';
 import ExpensesFilter from './ExpensesFilter';
+import ExpensesList from './ExpensesList';
 
 const Expenses = (props) => {
 
@@ -16,10 +16,12 @@ const Expenses = (props) => {
         return expense.date.getFullYear().toString() === year.toString() 
     });
 
+
     return (
         <ExpensesStyled>
             <ExpensesFilter onGetYearExpenses={getYearExpensesHandler} selectedYear={year}/>
-            {filteredExpenses.map( expense => <ExpenseItem {...expense} key={expense.id} /> )}
+
+            <ExpensesList expenses={filteredExpenses}/>
         </ExpensesStyled>
     )
 }

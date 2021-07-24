@@ -21,7 +21,7 @@ export const BoxInformation = css`
 // Components Styles
 
 
-export const ExpenseItemStyled = styled.article`
+export const ExpenseItemStyled = styled.li`
 
     &{
         display: flex;
