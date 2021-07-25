@@ -1,6 +1,8 @@
 import { Fragment, useState } from 'react';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpenses/NewExpense';
+import Backdrop from './components/UI/Backdrop';
+import Modal from './components/UI/Modal';
 
 function App() {
 
@@ -38,6 +40,10 @@ function App() {
 
   return (
     <Fragment>
+
+      <Backdrop/>
+
+      <Modal/>
 
       <NewExpense onSubmitExpenseForm={submitExpenseFormHandler}/>
 

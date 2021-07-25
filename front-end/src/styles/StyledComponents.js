@@ -17,6 +17,84 @@ export const BoxInformation = css`
     border-radius: 12px;
 
 `
+// UI Components
+
+export const BackdropStyled = styled.div`
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: 5;
+    width: 100vw;
+    height: 100vh;
+
+`
+
+export const ModalStyled = styled.div`
+
+    &{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: 750px;
+        background-color: ${props => props.theme.colors.warning};
+        color: white;
+        z-index: 6;
+    }
+
+    & header{
+        padding: 15px 2%;
+        background-color: ${props => props.theme.colors.secondary};
+        text-align: center;
+    }
+
+    & main{
+        padding: 45px 2%;
+        text-align: center;
+        color: black;
+    }
+
+    & footer{
+        padding: 15px 2%;
+        border-top: 5px dotted ${props => props.theme.colors.secondary};
+    }
+
+`
+
+export const ButtonStyled = styled.button`
+
+    & {
+        font: inherit;
+        cursor: pointer;
+        padding: 1rem 2rem;
+        border: 1px solid ${props => props.theme.colors.primary};
+        background-color: ${props => props.theme.colors.primary};
+        color: white;
+        margin-right: 1rem;
+        ${Card}
+    }
+
+    &:hover,
+    &:active {
+        background-color: ${props => props.theme.colors.secondary};
+    }
+
+    &.alternative {
+        color: #220131;
+        border-color: transparent;
+        background-color: transparent;
+    }
+
+    &.alternative:hover,
+    &.alternative:active {
+        background-color: #ddb3f8;
+    }
+
+
+`
 
 // Components Styles
 
