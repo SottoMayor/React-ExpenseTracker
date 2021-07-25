@@ -24,9 +24,13 @@ const NewExpense = (props) => {
         addExpenseHandler()
     }
 
+    const showModalHandler = (showData) => {
+        props.onShowModal(!showData)
+    }
+
     return (
         <NewExpenseStyled>
-            { addExpense &&  <NewExpenseForm onCancelAddExpense={cancelAddExpenseHandler} onSubmitExpenseForm={submitExpenseFormHandler} />}
+            { addExpense &&  <NewExpenseForm onShowModal={showModalHandler} onCancelAddExpense={cancelAddExpenseHandler} onSubmitExpenseForm={submitExpenseFormHandler} />}
             { !addExpense && <button onClick={addExpenseHandler}>Add Expense</button> }
             
         </NewExpenseStyled>

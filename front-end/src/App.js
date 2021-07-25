@@ -1,8 +1,7 @@
 import { Fragment, useState } from 'react';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpenses/NewExpense';
-import Backdrop from './components/UI/Backdrop';
-import Modal from './components/UI/Modal';
+import NewExpenseAlert from './components/NewExpenses/NewExpenseAlert';
 
 function App() {
 
@@ -38,14 +37,30 @@ function App() {
     });
   }
 
+  const [showAlert, setShowAlert] = useState(false);
+
+  const showAlertHandler = () => {
+    setShowAlert((prevState) => !prevState);
+  };
+
+  // I really need this?????
+  const showModalHandler = (showData) => {
+    setShowAlert(showData)
+}
+
   return (
     <Fragment>
 
-      <Backdrop/>
+      {showAlert && (
+          <NewExpenseAlert
+              show={showAlertHandler}
+              clicked={showAlertHandler}
+          >
+              <h2>Dados cadastrados com sucesso!</h2>
+          </NewExpenseAlert>
+      )}
 
-      <Modal/>
-
-      <NewExpense onSubmitExpenseForm={submitExpenseFormHandler}/>
+      <NewExpense onShowModal={showModalHandler} onSubmitExpenseForm={submitExpenseFormHandler}/>
 
       <Expenses expenses={expenses} />
 

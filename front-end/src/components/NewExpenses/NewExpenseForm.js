@@ -1,12 +1,18 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef, Fragment } from 'react';
 import { NewExpenseFormStyled } from '../../styles/StyledComponents';
 
-const NewExpenseForm = (props) => {
 
-    const titleRef = useRef()
-    const amountRef = useRef()
-    const dateRef = useRef()
-    
+const NewExpenseForm = (props) => {
+    const titleRef = useRef();
+    const amountRef = useRef();
+    const dateRef = useRef();
+
+    const [showAlert, setShowAlert] = useState(false);
+
+    const showAlertHandler = () => {
+        setShowAlert((prevState) => !prevState);
+        return showAlert;
+    };
 
     const submitHandler = (event) => {
         event.preventDefault();
@@ -18,49 +24,62 @@ const NewExpenseForm = (props) => {
         const formData = {
             title: title,
             amount: +amount,
-            date: new Date(date)
-        }
+            date: new Date(date),
+        };
 
-        props.onSubmitExpenseForm(formData)
+        props.onSubmitExpenseForm(formData);
 
         titleRef.current.value = '';
         amountRef.current.value = '';
         dateRef.current.value = '';
 
-        cancelAddExpense()
-    }
+        props.onShowModal(showAlertHandler())
+
+        cancelAddExpense();
+    };
 
     const cancelAddExpense = () => {
-        props.onCancelAddExpense()
-    }
-
+        props.onCancelAddExpense();
+    };
 
     return (
-        <NewExpenseFormStyled>
-            <form onSubmit={submitHandler}>
-                <div className="controls">
-                    <div className="control">
-                        <label>Title</label>
-                        <input type="text" ref={titleRef}/>
-                    </div>
-                    <div className="control">
-                        <label>Amount</label>
-                        <input  type="number" min="0.01" step="0.01" ref={amountRef}/>
-                    </div>
-                    <div className="control">
-                        <label>Date</label>
-                        <input type="date" min="2019-01-01" max="2022-12-31" ref={dateRef}/>
-                    </div>
-                </div>
+        <Fragment>
 
-                <div className="actions">
-                    <button onClick={cancelAddExpense}>Cancel</button>
-                    <button type="submit">Add Expense</button>
-                </div>
+            <NewExpenseFormStyled>
+                <form onSubmit={submitHandler}>
+                    <div className="controls">
+                        <div className="control">
+                            <label>Title</label>
+                            <input type="text" ref={titleRef} />
+                        </div>
+                        <div className="control">
+                            <label>Amount</label>
+                            <input
+                                type="number"
+                                min="0.01"
+                                step="0.01"
+                                ref={amountRef}
+                            />
+                        </div>
+                        <div className="control">
+                            <label>Date</label>
+                            <input
+                                type="date"
+                                min="2019-01-01"
+                                max="2022-12-31"
+                                ref={dateRef}
+                            />
+                        </div>
+                    </div>
 
-            </form>
-        </NewExpenseFormStyled>
-    )
-}
+                    <div className="actions">
+                        <button onClick={cancelAddExpense}>Cancel</button>
+                        <button type="submit">Add Expense</button>
+                    </div>
+                </form>
+            </NewExpenseFormStyled>
+        </Fragment>
+    );
+};
 
-export default NewExpenseForm
+export default NewExpenseForm;
