@@ -230,9 +230,9 @@ export const ChartBarStyled = styled.div`
   & .inner {
     height: 100%;
     width: 100%;
-    border: 1px solid #313131;
+    border: 1px solid white;
     border-radius: 12px;
-    background-color: #c3b4f3;
+    background-color: ${props => props.theme.colors.warning};
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -240,7 +240,7 @@ export const ChartBarStyled = styled.div`
   }
   
   & .fill {
-    background-color: #4826b9;
+    background-color: ${props => props.theme.colors.secondary};
     width: 100%;
     transition: all 0.3s ease-out;
   }

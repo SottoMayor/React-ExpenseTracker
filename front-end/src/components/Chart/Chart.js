@@ -5,8 +5,7 @@ import ChartBar from './ChartBar';
 const Chart = (props) => {
 
     const dataPointsValues = props.dataPoints.map( dataPoint => dataPoint.value );
-    const totalMaximum = dataPointsValues.reduce( (prev, current) => {return prev + current}, 0)
-    console.log(totalMaximum)
+    const totalMaximum = dataPointsValues.reduce( (prev, current) => {return prev + current}, 0);
 
     return (
         <ChartStyled>

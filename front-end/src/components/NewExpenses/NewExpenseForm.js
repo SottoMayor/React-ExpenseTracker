@@ -1,28 +1,19 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import { NewExpenseFormStyled } from '../../styles/StyledComponents';
 
 const NewExpenseForm = (props) => {
 
-    const [title, setTitle] = useState('');
-
-    const titleHandler = event => { 
-        setTitle(event.target.value);
-    }
-
-    const [amount, setAmount] = useState('');
-
-    const amountHandler = event => {
-        setAmount(event.target.value);
-    }
+    const titleRef = useRef()
+    const amountRef = useRef()
+    const dateRef = useRef()
     
-    const [date, setDate] = useState('');
-
-    const dateHandler = event => {
-        setDate(event.target.value);
-    }
 
     const submitHandler = (event) => {
         event.preventDefault();
+
+        const title = titleRef.current.value;
+        const amount = amountRef.current.value;
+        const date = dateRef.current.value;
 
         const formData = {
             title: title,
@@ -32,9 +23,9 @@ const NewExpenseForm = (props) => {
 
         props.onSubmitExpenseForm(formData)
 
-        setTitle('');
-        setAmount('');
-        setDate('');
+        titleRef.current.value = '';
+        amountRef.current.value = '';
+        dateRef.current.value = '';
 
         cancelAddExpense()
     }
@@ -50,15 +41,15 @@ const NewExpenseForm = (props) => {
                 <div className="controls">
                     <div className="control">
                         <label>Title</label>
-                        <input value={title} type="text" onChange={titleHandler}/>
+                        <input type="text" ref={titleRef}/>
                     </div>
                     <div className="control">
                         <label>Amount</label>
-                        <input value={amount} type="number" min="0.01" step="0.01" onChange={amountHandler}/>
+                        <input  type="number" min="0.01" step="0.01" ref={amountRef}/>
                     </div>
                     <div className="control">
                         <label>Date</label>
-                        <input value={date} type="date" min="2019-01-01" max="2022-12-31" onChange={dateHandler}/>
+                        <input type="date" min="2019-01-01" max="2022-12-31" ref={dateRef}/>
                     </div>
                 </div>
 

@@ -4,7 +4,7 @@ import ExpenseItem from './ExpenseItem';
 const ExpensesList = (props) => {
 
     const notFound = (
-        <h2 style={ {textAlign: "center"} }>
+        <h2 style={ {textAlign: "center", marginTop: "15px"} }>
             No expenses found!
         </h2>
     )
