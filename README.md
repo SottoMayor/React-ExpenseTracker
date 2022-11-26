@@ -1,2 +1,2 @@
-# MERN-ExpenseTracker
-MERN App - Creating a Expense Tracker
+# React-ExpenseTracker
+React App - Creating a Expense Tracker
